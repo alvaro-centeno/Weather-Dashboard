@@ -19,8 +19,14 @@ $(document).ready(function () {
 
             var cityName = response.name;
             var kelvin = Math.floor(response.main.temp_max);
+            var humidity = response.main.humidity;
+            var windSpeed = response.windSpeed;
+            var clouds = response.clouds.all;
+            // var dailyTemp = response.daily.temp.max;
 
-            $(".firstSection").append(`<h1>The temperatur is ${kelvin} in ${cityName}</h1> `);
+
+            $("#cityName").append(`<h3>${cityName}</h3>`)
+            $("#cityInfo").append(`<p>Temperature: ${kelvin}<br>Humidity: ${humidity}<br>Wind Speed: ${windSpeed} <br> Clouds: ${clouds}</p> `);
         });
 
 
