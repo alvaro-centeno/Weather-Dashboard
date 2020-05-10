@@ -27,11 +27,14 @@ $(document).ready(function () {
             var today = moment().format('l');
 
             // var dailyTemp = response.daily.temp.max;
-
+            $("#current").prepend(`<div class="card" style="width: 50rem;">
+<div class="card-body">
+    <h3 class="card-title" id="cityName">${cityName}  (${today})</h3>
+    <p class="card-text" id="cityInfo">Temperature: ${kelvin} <img src = "http://openweathermap.org/img/wn/${icon}.png">
+    <br>Humidity: ${humidity}<br>Wind Speed: ${windSpeed} <br> Clouds: ${clouds}</p>
+</div>
+</div> `)
             $("#previousSearch").append(`<li class="list-group-item" style="width:20rem">${cityName}</li>`)
-            $("#cityName").append(`<h3>${cityName}  (${today})</h3>`)
-            $("#cityInfo").append(`<p>Temperature: ${kelvin} <img src = "http://openweathermap.org/img/wn/${icon}.png"><br>Humidity: ${humidity}<br>Wind Speed: ${windSpeed} <br> Clouds: ${clouds}<br>${icon}</p> `);
-
 
 
 
@@ -66,11 +69,48 @@ $(document).ready(function () {
 
 
 
-                $("#dayOne").append(`<p>${first} <br>Temp: ${dayOne} <img src = "http://openweathermap.org/img/wn/${iconTwo}.png"><br> Humidity: ${oneHumid}%</p>`);
-                $("#dayTwo").append(`<p>${second}<br> Temp: ${dayTwo}<img src = "http://openweathermap.org/img/wn/${iconThree}.png"><br> Humidity: ${twoHumid}%</p>`);
-                $("#dayThree").append(`<p>${third}<br> Temp:${dayThree}<img src = "http://openweathermap.org/img/wn/${iconFour}.png"><br> Humidity: ${threeHumid}%</p>`);
-                $("#dayFour").append(`<p>${fourth}<br> Temp: ${dayFour}<img src = "http://openweathermap.org/img/wn/${iconFive}.png"><br> Humidity: ${fourHumid}%</p>`);
-                $("#dayFive").append(`<p>${fifth}<br> Temp: ${dayFive}<img src = "http://openweathermap.org/img/wn/${iconSix}.png"><br> Humidity: ${fiveHumid}%</p>`);
+                $("#forecast").append(`
+                <div class="col-sm-2">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body bg-primary">
+                            <h5 class="card-title" id="firstDay"></h5>
+                            <p class="card-text">${first} <br>Temp: ${dayOne} <img src = "http://openweathermap.org/img/wn/${iconTwo}.png"><br> Humidity: ${oneHumid}%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body bg-primary">
+                            <h5 class="card-title" id="firstDay"></h5>
+                            <p class="card-text">${second} <br>Temp: ${dayTwo} <img src = "http://openweathermap.org/img/wn/${iconThree}.png"><br> Humidity: ${oneHumid}%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body bg-primary">
+                            <h5 class="card-title" id="firstDay"></h5>
+                            <p class="card-text">${third} <br>Temp: ${dayThree} <img src = "http://openweathermap.org/img/wn/${iconFour}.png"><br> Humidity: ${oneHumid}%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body bg-primary">
+                            <h5 class="card-title" id="firstDay"></h5>
+                            <p class="card-text">${fourth} <br>Temp: ${dayFour} <img src = "http://openweathermap.org/img/wn/${iconFive}.png"><br> Humidity: ${oneHumid}%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body bg-primary">
+                            <h5 class="card-title" id="firstDay"></h5>
+                            <p class="card-text">${fifth} <br>Temp: ${dayFive} <img src = "http://openweathermap.org/img/wn/${iconSix}.png"><br> Humidity: ${oneHumid}%</p>
+                        </div>
+                    </div>
+                </div>`);
+
 
 
             });
