@@ -13,14 +13,14 @@ $(document).ready(function () {
 
         $.ajax({
             type: "GET",
-            url: `https://api.openweathermap.org/data/2.5/weather?zip=${userInput}&units=imperial&appid=${api_key}`,
+            url: `https://api.openweathermap.org/data/2.5/weather?q=${userInput}&units=imperial&appid=${api_key}`,
             dataType: "json",
         }).then(function (response) {
 
             var cityName = response.name;
             var kelvin = Math.floor(response.main.temp_max);
 
-            $("body").prepend(`<h1>The temperatur is ${kelvin} in ${cityName}</h1> `);
+            $(".firstSection").append(`<h1>The temperatur is ${kelvin} in ${cityName}</h1> `);
         });
 
 
