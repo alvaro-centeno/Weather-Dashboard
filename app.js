@@ -24,7 +24,7 @@ $(document).ready(function () {
             var clouds = response.clouds.all;
             // var dailyTemp = response.daily.temp.max;
 
-
+            $("#previousSearch").append(`<li class="list-group-item" style="width:20rem">${cityName}</li>`)
             $("#cityName").append(`<h3>${cityName}</h3>`)
             $("#cityInfo").append(`<p>Temperature: ${kelvin}<br>Humidity: ${humidity}<br>Wind Speed: ${windSpeed} <br> Clouds: ${clouds}</p> `);
         });
