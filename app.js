@@ -5,7 +5,7 @@ $(document).ready(function () {
 
         let userInput = $("#userInput").val();
 
-        console.log(userInput);
+        // console.log(userInput);
 
         $("#userInput").val("");
 
@@ -16,7 +16,7 @@ $(document).ready(function () {
             url: `https://api.openweathermap.org/data/2.5/weather?q=${userInput}&units=imperial&appid=${api_key}`,
             dataType: "json",
         }).then(function (response) {
-
+            // console.log(response);
             var cityName = response.name;
             var kelvin = Math.floor(response.main.temp_max);
             var humidity = response.main.humidity;
@@ -27,11 +27,32 @@ $(document).ready(function () {
             $("#previousSearch").append(`<li class="list-group-item" style="width:20rem">${cityName}</li>`)
             $("#cityName").append(`<h3>${cityName}</h3>`)
             $("#cityInfo").append(`<p>Temperature: ${kelvin}<br>Humidity: ${humidity}<br>Wind Speed: ${windSpeed} <br> Clouds: ${clouds}</p> `);
+
+            $.ajax({
+                type: "GET",
+                url: `https://api.openweathermap.org/data/2.5/forecast/daily?q=${userInput}&cnt=5&units=imperial&appid=${api_key}`,
+                dataType: "json",
+            }).then(function (response) {
+                // console.log(response.list[0])
+                var dayOne = response.list[0].temp.max;
+                var dayTwo = response.list[1].temp.max;
+                var dayThree = response.list[2].temp.max;
+                var dayFour = response.list[3].temp.max;
+                var dayFive = response.list[4].temp.max;
+                $("#dayOne").append(`<p>${dayOne}</p>`);
+                $("#dayTwo").append(`<p>${dayTwo}</p>`);
+                $("#dayThree").append(`<p>${dayThree}</p>`);
+                $("#dayFour").append(`<p>${dayFour}</p>`);
+                $("#dayFive").append(`<p>${dayFive}</p>`);
+
+
+            });
         });
 
+    });
 
 
 
-    })
 
 })
+
