@@ -18,7 +18,7 @@ $(document).ready(function () {
             url: `https://api.openweathermap.org/data/2.5/weather?q=${userInput}&units=imperial&appid=${api_key}`,
             dataType: "json",
         }).then(function (response) {
-            // console.log(response);
+            var icon = response.weather[0].icon;
             var cityName = response.name;
             var kelvin = Math.floor(response.main.temp_max);
             var humidity = response.main.humidity;
@@ -30,7 +30,7 @@ $(document).ready(function () {
 
             $("#previousSearch").append(`<li class="list-group-item" style="width:20rem">${cityName}</li>`)
             $("#cityName").append(`<h3>${cityName}  (${today})</h3>`)
-            $("#cityInfo").append(`<p>Temperature: ${kelvin}<br>Humidity: ${humidity}<br>Wind Speed: ${windSpeed} <br> Clouds: ${clouds}</p> `);
+            $("#cityInfo").append(`<p>Temperature: ${kelvin} <img src = "http://openweathermap.org/img/wn/${icon}.png"><br>Humidity: ${humidity}<br>Wind Speed: ${windSpeed} <br> Clouds: ${clouds}<br>${icon}</p> `);
 
 
 
@@ -43,7 +43,11 @@ $(document).ready(function () {
                 console.log(response)
                 var i = 0;
 
-
+                var iconTwo = response.list[0].weather[0].icon;
+                var iconThree = response.list[1].weather[0].icon;
+                var iconFour = response.list[2].weather[0].icon;
+                var iconFive = response.list[3].weather[0].icon;
+                var iconSix = response.list[4].weather[0].icon;
                 var dayOne = Math.floor(response.list[0].temp.max);
                 var dayTwo = Math.floor(response.list[1].temp.max);
                 var dayThree = Math.floor(response.list[2].temp.max);
@@ -62,11 +66,11 @@ $(document).ready(function () {
 
 
 
-                $("#dayOne").append(`<p>${first} <br>Temp: ${dayOne} <br> Humidity: ${oneHumid}%</p>`);
-                $("#dayTwo").append(`<p>${second}<br> Temp: ${dayTwo}<br> Humidity: ${twoHumid}%</p>`);
-                $("#dayThree").append(`<p>${third}<br> Temp:${dayThree}<br> Humidity: ${threeHumid}%</p>`);
-                $("#dayFour").append(`<p>${fourth}<br> Temp: ${dayFour}<br> Humidity: ${fourHumid}%</p>`);
-                $("#dayFive").append(`<p>${fifth}<br> Temp: ${dayFive}<br> Humidity: ${fiveHumid}%</p>`);
+                $("#dayOne").append(`<p>${first} <br>Temp: ${dayOne} <img src = "http://openweathermap.org/img/wn/${iconTwo}.png"><br> Humidity: ${oneHumid}%</p>`);
+                $("#dayTwo").append(`<p>${second}<br> Temp: ${dayTwo}<img src = "http://openweathermap.org/img/wn/${iconThree}.png"><br> Humidity: ${twoHumid}%</p>`);
+                $("#dayThree").append(`<p>${third}<br> Temp:${dayThree}<img src = "http://openweathermap.org/img/wn/${iconFour}.png"><br> Humidity: ${threeHumid}%</p>`);
+                $("#dayFour").append(`<p>${fourth}<br> Temp: ${dayFour}<img src = "http://openweathermap.org/img/wn/${iconFive}.png"><br> Humidity: ${fourHumid}%</p>`);
+                $("#dayFive").append(`<p>${fifth}<br> Temp: ${dayFive}<img src = "http://openweathermap.org/img/wn/${iconSix}.png"><br> Humidity: ${fiveHumid}%</p>`);
 
 
             });
