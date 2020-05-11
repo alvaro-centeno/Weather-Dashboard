@@ -27,9 +27,8 @@ $(document).ready(function () {
 
             $("#current").prepend(`<div class="card" style="width: 50rem">
 <div class="card-body">
-    <h3 class="card-title" id="cityName">${cityName}  (${today})</h3>
-    <p class="card-text" id="cityInfo">Temperature: ${kelvin} <img src = "http://openweathermap.org/img/wn/${icon}.png">
-    <br>Humidity: ${humidity}%<br>Wind Speed: ${windSpeed}</p>
+    <h3 class="card-title" id="cityName">${cityName}  (${today})<img src = "http://openweathermap.org/img/wn/${icon}.png"></h3>
+    <p class="card-text" id="cityInfo">Temperature: ${kelvin}°F  <br>Humidity: ${humidity}%<br>Wind Speed: ${windSpeed} MPH</p>
 </div>
 </div> `);
             $("#fiveDay").text("5 Day Forecast:")
