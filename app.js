@@ -6,7 +6,6 @@ $(document).ready(function () {
         let userInput = $("#userInput").val();
         // console.log(userInput);
         $("#userInput").val("");
-        $("#current").empty();
 
         var api_key = "3dababe5876bb70212d76fb0d2f5aa26";
 
@@ -22,6 +21,7 @@ $(document).ready(function () {
             var windSpeed = response.windSpeed;
             var clouds = response.clouds.all;
             var today = moment().format('l');
+            $("#current").empty();
 
             $("#current").prepend(`<div class="card" style="width: 50rem">
 <div class="card-body">
