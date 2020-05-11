@@ -3,10 +3,18 @@ body {
     background-image: url("https://www.amazeelabs.com/sites/default/files/styles/leading_image/public/pexels-photo.jpg?h=f7d9296c&itok=LzenSsG8");
     background-color: #cccccc;
     height: fit-content; 
-  background-position: center; 
-  background-repeat: no-repeat; 
-  background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
    }
+
+.jumbotron {
+    margin-bottom: 0 !important;
+}
+
+#current {
+    margin-top: 2rem;
+}
 
 .firstSection {
     background-color: darkgrey;
@@ -23,11 +31,5 @@ h2 {
 
 #fiveDay {
     text-align: center;
-    color: white;
-    /* background-color: yellowgreen; */
-   
+    color: white;   
 }
-
-/* .card {
-    margin-bottom: 10rem;
-} */
