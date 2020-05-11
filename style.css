@@ -24,7 +24,7 @@ body {
 
 .firstSection {
     background-color: darkgrey;
-    padding-bottom: 40rem;
+    padding-bottom: 80vh;
 }
 
 h2 {
@@ -36,7 +36,8 @@ h2 {
 }
 
 #fiveDay {
-    text-align: center;
+    padding-top: 20px;
+    padding-left: 30px;
     color: white;   
 }
 #special{
@@ -48,4 +49,8 @@ h2 {
     margin-right: 680px;
     border-radius: 7px;
     padding-left:3px;
+}
+
+footer{
+    padding-top: 20vh;
 }
