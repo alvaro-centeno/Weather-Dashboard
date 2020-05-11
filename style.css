@@ -6,7 +6,7 @@ body {
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover;
-   }
+ }
 
 .jumbotron {
     margin-bottom: 0 !important;
@@ -14,6 +14,11 @@ body {
 
 #current {
     margin-top: 2rem;
+    margin-left: 100px;
+}
+
+#forecast {
+    margin-left: 50px;
 }
 
 .firstSection {
@@ -29,7 +34,10 @@ h2 {
     color: white;
 }
 
+
+
 #fiveDay {
     text-align: center;
     color: white;   
 }
+

@@ -6,6 +6,7 @@ $(document).ready(function () {
         let userInput = $("#userInput").val();
         // console.log(userInput);
         $("#userInput").val("");
+        $("#current").empty();
 
         var api_key = "3dababe5876bb70212d76fb0d2f5aa26";
 
@@ -21,7 +22,6 @@ $(document).ready(function () {
             var windSpeed = response.windSpeed;
             var clouds = response.clouds.all;
             var today = moment().format('l');
-            // $("#current").empty();
 
             $("#current").prepend(`<div class="card" style="width: 50rem">
 <div class="card-body">
@@ -42,7 +42,6 @@ $(document).ready(function () {
 
 
                 console.log(response)
-                var i = 0;
 
                 var iconTwo = response.list[0].weather[0].icon;
                 var iconThree = response.list[1].weather[0].icon;
@@ -102,7 +101,7 @@ $(document).ready(function () {
                 <div class="col-sm-2">
                     <div class="card" style="width: 18rem;">
                         <div class="card-body bg-primary">
-                            <h5 class="card-title" id="firstDay"></h5>
+                            <h5 class="card-title" id="dayOne"></h5>
                             <p class="card-text" id="dayCast">${fifth} <br>Temp: ${dayFive} <img src = "http://openweathermap.org/img/wn/${iconSix}.png"><br> Humidity: ${fiveHumid}%</p>
                         </div>
                     </div>
