@@ -37,8 +37,8 @@ $(document).ready(function () {
 </div>
 </div> `)
             $("#previousSearch").append(`<li class="list-group-item" style="width:20rem">${cityName}</li>`)
-            $("p:first").replaceWith("Hello world!");
-
+            // $("#current"), empty();
+            $("#forecast").empty();
 
             $.ajax({
                 type: "GET",
