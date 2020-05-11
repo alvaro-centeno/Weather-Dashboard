@@ -2,15 +2,9 @@ $(document).ready(function () {
     var userInput = "";
 
     $("#submitBtn").on("click", function (e) {
-
-
         e.preventDefault();
-
-
         let userInput = $("#userInput").val();
-
         // console.log(userInput);
-
         $("#userInput").val("");
 
         var api_key = "3dababe5876bb70212d76fb0d2f5aa26";
@@ -27,17 +21,17 @@ $(document).ready(function () {
             var windSpeed = response.windSpeed;
             var clouds = response.clouds.all;
             var today = moment().format('l');
+            // $("#current").empty();
 
-            // var dailyTemp = response.daily.temp.max;
-            $("#current").prepend(`<div class="card" style="width: 50rem;">
+            $("#current").prepend(`<div class="card" style="width: 50rem">
 <div class="card-body">
     <h3 class="card-title" id="cityName">${cityName}  (${today})</h3>
     <p class="card-text" id="cityInfo">Temperature: ${kelvin} <img src = "http://openweathermap.org/img/wn/${icon}.png">
     <br>Humidity: ${humidity}<br>Wind Speed: ${windSpeed} <br> Clouds: ${clouds}</p>
 </div>
-</div> `)
-            $("#previousSearch").append(`<li class="list-group-item" style="width:20rem">${cityName}</li>`)
-            // $("#current"), empty();
+</div> `);
+            $("#fiveDay").append("5 Day Forecast")
+            $("#previousSearch").append(`<li class="list-group-item" style="width:20rem">${cityName}</li>`);
             $("#forecast").empty();
 
             $.ajax({
@@ -45,6 +39,8 @@ $(document).ready(function () {
                 url: `https://api.openweathermap.org/data/2.5/forecast/daily?q=${userInput}&cnt=5&units=imperial&appid=${api_key}`,
                 dataType: "json",
             }).then(function (response) {
+
+
                 console.log(response)
                 var i = 0;
 
