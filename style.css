@@ -1,3 +1,13 @@
+
+body {
+    background-image: url("https://www.amazeelabs.com/sites/default/files/styles/leading_image/public/pexels-photo.jpg?h=f7d9296c&itok=LzenSsG8");
+    background-color: #cccccc;
+    height: fit-content; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+   }
+
 .firstSection {
     background-color: darkgrey;
     padding-bottom: 40rem;
@@ -9,6 +19,13 @@ h2 {
 
 #dayCast {
     color: white;
+}
+
+#fiveDay {
+    text-align: center;
+    color: white;
+    /* background-color: yellowgreen; */
+   
 }
 
 /* .card {
