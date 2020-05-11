@@ -14,20 +14,22 @@ $(document).ready(function () {
             url: `https://api.openweathermap.org/data/2.5/weather?q=${userInput}&units=imperial&appid=${api_key}`,
             dataType: "json",
         }).then(function (response) {
+
             var icon = response.weather[0].icon;
             var cityName = response.name;
             var kelvin = Math.floor(response.main.temp_max);
             var humidity = response.main.humidity;
-            var windSpeed = response.windSpeed;
-            var clouds = response.clouds.all;
+            var windSpeed = response.wind.speed;
             var today = moment().format('l');
+            var lat = response.coord.lat;
+            var lon = response.coord.lon;
             $("#current").empty();
 
             $("#current").prepend(`<div class="card" style="width: 50rem">
 <div class="card-body">
     <h3 class="card-title" id="cityName">${cityName}  (${today})</h3>
     <p class="card-text" id="cityInfo">Temperature: ${kelvin} <img src = "http://openweathermap.org/img/wn/${icon}.png">
-    <br>Humidity: ${humidity}<br>Wind Speed: ${windSpeed} <br> Clouds: ${clouds}</p>
+    <br>Humidity: ${humidity}%<br>Wind Speed: ${windSpeed}</p>
 </div>
 </div> `);
             $("#fiveDay").text("5 Day Forecast")
@@ -36,36 +38,52 @@ $(document).ready(function () {
 
             $.ajax({
                 type: "GET",
-                url: `https://api.openweathermap.org/data/2.5/forecast/daily?q=${userInput}&cnt=5&units=imperial&appid=${api_key}`,
+                url: `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,daily&appid=${api_key}`,
                 dataType: "json",
             }).then(function (response) {
+                var uvi = response.current.uvi;
+                console.log(response.current.uvi);
+                $("#cityInfo").append(`<p id="uvi">UV: ${uvi}</p>`);
+
+                if (uvi < 4) {
+
+                    $("#uvi").css("background-color", "green")
+                } else if (uvi < 7) {
+                    $("#uvi").css("background-color", "yellow")
+                } else {
+                    $("#uvi").css("background-color", "red")
+                };
 
 
-                console.log(response)
+                $.ajax({
+                    type: "GET",
+                    url: `https://api.openweathermap.org/data/2.5/forecast/daily?q=${userInput}&cnt=5&units=imperial&appid=${api_key}`,
+                    dataType: "json",
+                }).then(function (response) {
 
-                var iconTwo = response.list[0].weather[0].icon;
-                var iconThree = response.list[1].weather[0].icon;
-                var iconFour = response.list[2].weather[0].icon;
-                var iconFive = response.list[3].weather[0].icon;
-                var iconSix = response.list[4].weather[0].icon;
-                var dayOne = Math.floor(response.list[0].temp.max);
-                var dayTwo = Math.floor(response.list[1].temp.max);
-                var dayThree = Math.floor(response.list[2].temp.max);
-                var dayFour = Math.floor(response.list[3].temp.max);
-                var dayFive = Math.floor(response.list[4].temp.max);
-                var oneHumid = response.list[0].humidity;
-                var twoHumid = response.list[1].humidity;
-                var threeHumid = response.list[2].humidity;
-                var fourHumid = response.list[3].humidity;
-                var fiveHumid = response.list[4].humidity;
-                var first = moment().add(1, 'days').format('l');
-                var second = moment().add(2, 'days').format('l');
-                var third = moment().add(3, 'days').format('l');
-                var fourth = moment().add(4, 'days').format('l');
-                var fifth = moment().add(5, 'days').format('l');
+                    var iconTwo = response.list[0].weather[0].icon;
+                    var iconThree = response.list[1].weather[0].icon;
+                    var iconFour = response.list[2].weather[0].icon;
+                    var iconFive = response.list[3].weather[0].icon;
+                    var iconSix = response.list[4].weather[0].icon;
+                    var dayOne = Math.floor(response.list[0].temp.max);
+                    var dayTwo = Math.floor(response.list[1].temp.max);
+                    var dayThree = Math.floor(response.list[2].temp.max);
+                    var dayFour = Math.floor(response.list[3].temp.max);
+                    var dayFive = Math.floor(response.list[4].temp.max);
+                    var oneHumid = response.list[0].humidity;
+                    var twoHumid = response.list[1].humidity;
+                    var threeHumid = response.list[2].humidity;
+                    var fourHumid = response.list[3].humidity;
+                    var fiveHumid = response.list[4].humidity;
+                    var first = moment().add(1, 'days').format('l');
+                    var second = moment().add(2, 'days').format('l');
+                    var third = moment().add(3, 'days').format('l');
+                    var fourth = moment().add(4, 'days').format('l');
+                    var fifth = moment().add(5, 'days').format('l');
 
 
-                $("#forecast").append(`
+                    $("#forecast").append(`
                 <div class="col-sm-2">
                     <div class="card" style="width: 18rem;">
                         <div class="card-body bg-primary">
@@ -109,6 +127,7 @@ $(document).ready(function () {
 
 
 
+                });
             });
         });
 

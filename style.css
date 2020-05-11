@@ -43,3 +43,9 @@ h2 {
     width: 165px !important;
     text-align: justify;
 }
+
+#uvi {
+    margin-right: 680px;
+    border-radius: 7px;
+    padding-left:3px;
+}
