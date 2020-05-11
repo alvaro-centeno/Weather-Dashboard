@@ -36,7 +36,7 @@ $(document).ready(function () {
 </div> `)
             $("#previousSearch").append(`<li class="list-group-item" style="width:20rem">${cityName}</li>`)
 
-
+            $("#current").remove();
 
             $.ajax({
                 type: "GET",
@@ -82,7 +82,7 @@ $(document).ready(function () {
                     <div class="card" style="width: 18rem;">
                         <div class="card-body bg-primary">
                             <h5 class="card-title" id="firstDay"></h5>
-                            <p class="card-text" id="dayCast">${second} <br>Temp: ${dayTwo} <img src = "http://openweathermap.org/img/wn/${iconThree}.png"><br> Humidity: ${oneHumid}%</p>
+                            <p class="card-text" id="dayCast">${second} <br>Temp: ${dayTwo} <img src = "http://openweathermap.org/img/wn/${iconThree}.png"><br> Humidity: ${twoHumid}%</p>
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@ $(document).ready(function () {
                     <div class="card" style="width: 18rem;">
                         <div class="card-body bg-primary">
                             <h5 class="card-title" id="firstDay"></h5>
-                            <p class="card-text" id="dayCast">${third} <br>Temp: ${dayThree} <img src = "http://openweathermap.org/img/wn/${iconFour}.png"><br> Humidity: ${oneHumid}%</p>
+                            <p class="card-text" id="dayCast">${third} <br>Temp: ${dayThree} <img src = "http://openweathermap.org/img/wn/${iconFour}.png"><br> Humidity: ${threeHumid}%</p>
                         </div>
                     </div>
                 </div>
@@ -98,7 +98,7 @@ $(document).ready(function () {
                     <div class="card" style="width: 18rem;">
                         <div class="card-body bg-primary">
                             <h5 class="card-title" id="firstDay"></h5>
-                            <p class="card-text" id="dayCast">${fourth} <br>Temp: ${dayFour} <img src = "http://openweathermap.org/img/wn/${iconFive}.png"><br> Humidity: ${oneHumid}%</p>
+                            <p class="card-text" id="dayCast">${fourth} <br>Temp: ${dayFour} <img src = "http://openweathermap.org/img/wn/${iconFive}.png"><br> Humidity: ${fourHumid}%</p>
                         </div>
                     </div>
                 </div>
@@ -106,7 +106,7 @@ $(document).ready(function () {
                     <div class="card" style="width: 18rem;">
                         <div class="card-body bg-primary">
                             <h5 class="card-title" id="firstDay"></h5>
-                            <p class="card-text" id="dayCast">${fifth} <br>Temp: ${dayFive} <img src = "http://openweathermap.org/img/wn/${iconSix}.png"><br> Humidity: ${oneHumid}%</p>
+                            <p class="card-text" id="dayCast">${fifth} <br>Temp: ${dayFive} <img src = "http://openweathermap.org/img/wn/${iconSix}.png"><br> Humidity: ${fiveHumid}%</p>
                         </div>
                     </div>
                 </div>`);
