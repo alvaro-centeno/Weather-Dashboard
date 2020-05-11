@@ -30,7 +30,7 @@ $(document).ready(function () {
     <br>Humidity: ${humidity}<br>Wind Speed: ${windSpeed} <br> Clouds: ${clouds}</p>
 </div>
 </div> `);
-            $("#fiveDay").append("5 Day Forecast")
+            $("#fiveDay").text("5 Day Forecast")
             $("#previousSearch").append(`<li class="list-group-item" style="width:20rem">${cityName}</li>`);
             $("#forecast").empty();
 
