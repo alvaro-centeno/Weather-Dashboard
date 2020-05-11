@@ -1,8 +1,10 @@
 $(document).ready(function () {
     var userInput = "";
-    $("#submitBtn").on("click", function (e) {
-        e.preventDefault();
 
+    $("#submitBtn").on("click", function (e) {
+
+
+        e.preventDefault();
 
 
         let userInput = $("#userInput").val();
@@ -35,8 +37,8 @@ $(document).ready(function () {
 </div>
 </div> `)
             $("#previousSearch").append(`<li class="list-group-item" style="width:20rem">${cityName}</li>`)
+            $("p:first").replaceWith("Hello world!");
 
-            $("#current").remove();
 
             $.ajax({
                 type: "GET",
@@ -66,7 +68,6 @@ $(document).ready(function () {
                 var third = moment().add(3, 'days').format('l');
                 var fourth = moment().add(4, 'days').format('l');
                 var fifth = moment().add(5, 'days').format('l');
-
 
 
                 $("#forecast").append(`
