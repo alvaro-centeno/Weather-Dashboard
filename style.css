@@ -12,14 +12,15 @@ body {
     margin-bottom: 0 !important;
 }
 
-#current {
+#show {
     margin-top: 2rem;
     margin-left: 100px;
 }
-
-#forecast {
-    margin-left: 50px;
+#current {
+    margin-top: 2rem;
+    margin-left: 10px;
 }
+
 
 .firstSection {
     background-color: darkgrey;
@@ -34,10 +35,11 @@ h2 {
     color: white;
 }
 
-
-
 #fiveDay {
     text-align: center;
     color: white;   
 }
-
+#special{
+    width: 165px !important;
+    text-align: justify;
+}

@@ -99,8 +99,8 @@ $(document).ready(function () {
                     </div>
                 </div>
                 <div class="col-sm-2">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body bg-primary">
+                    <div class="card" style="width: 18rem;" id="special">
+                        <div class="card-body bg-primary" >
                             <h5 class="card-title" id="dayOne"></h5>
                             <p class="card-text" id="dayCast">${fifth} <br>Temp: ${dayFive} <img src = "http://openweathermap.org/img/wn/${iconSix}.png"><br> Humidity: ${fiveHumid}%</p>
                         </div>
