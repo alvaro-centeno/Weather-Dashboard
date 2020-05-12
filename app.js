@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var userInput = "";
+    // var userInput = "";
 
     $("#submitBtn").on("click", function (e) {
         e.preventDefault();
@@ -8,6 +8,7 @@ $(document).ready(function () {
         $("#userInput").val("");
 
         var api_key = "3dababe5876bb70212d76fb0d2f5aa26";
+        // JSON.parse(window.localStorage.getItem(response)) || [];
 
         $.ajax({
             type: "GET",
@@ -32,8 +33,12 @@ $(document).ready(function () {
 </div>
 </div> `);
             $("#fiveDay").text("5 Day Forecast:")
-            $("#previousSearch").append(`<li class="list-group-item" style="width:20rem">${cityName}</li>`);
+            $("#previousSearch").prepend(`<li class="list-group-item" style="width:20rem">${cityName}</li>`);
             $("#forecast").empty();
+
+            $("li").on("click", function () {
+                $("#userInput").prepend("history");
+            })
 
             $.ajax({
                 type: "GET",
@@ -41,7 +46,7 @@ $(document).ready(function () {
                 dataType: "json",
             }).then(function (response) {
                 var uvi = response.current.uvi;
-                console.log(response.current.uvi);
+                // console.log(response.current.uvi);
                 $("#cityInfo").append(`<p id="uvi">UV: ${uvi}</p>`);
 
                 if (uvi < 4) {
@@ -129,6 +134,10 @@ $(document).ready(function () {
                 });
             });
         });
+
+
+
+
 
     });
 

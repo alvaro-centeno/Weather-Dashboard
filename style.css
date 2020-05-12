@@ -2,7 +2,7 @@
 body {
     background-image: url("https://www.amazeelabs.com/sites/default/files/styles/leading_image/public/pexels-photo.jpg?h=f7d9296c&itok=LzenSsG8");
     background-color: #cccccc;
-    height: fit-content; 
+    height: 100vh; 
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover;
@@ -10,6 +10,7 @@ body {
 
 .jumbotron {
     margin-bottom: 0 !important;
+    background-color: transparent !important;
 }
 
 #show {
@@ -19,12 +20,6 @@ body {
 #current {
     margin-top: 2rem;
     margin-left: 10px;
-}
-
-
-.firstSection {
-    background-color: darkgrey;
-    padding-bottom: 80vh;
 }
 
 h2 {
